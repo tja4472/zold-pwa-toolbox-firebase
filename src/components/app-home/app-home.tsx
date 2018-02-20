@@ -34,6 +34,10 @@ export class AppHome {
           <stencil-route-link url="/gizmos">
             <ion-button>Gizmos page</ion-button>
           </stencil-route-link>
+
+          <stencil-route-link url="/sign-in">
+            <ion-button>Sign In</ion-button>
+          </stencil-route-link>          
         </ion-content>
       </ion-page>
     );

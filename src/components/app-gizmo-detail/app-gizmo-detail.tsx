@@ -9,9 +9,17 @@ export class AppGizmoDetail {
   //
   @Prop({ connect: 'ion-modal-controller' })
   modalCtrl: ModalController;
+
+  modalController: any;
   componentDidLoad() {
     //
     console.log('AppGizmoDetail:componentDidLoad');
+
+  // initialize controller
+  this.modalController = document.querySelector('ion-modal-controller');
+  this.modalController.componentOnReady().then((x) => {
+    console.log('XXXXXXX>', x);
+  });    
   }
 
   async exit() {
@@ -25,8 +33,8 @@ export class AppGizmoDetail {
       x.dismiss();
     });    
  */
-
-    this.modalCtrl.dismiss();
+this.modalController.dismiss();
+    // this.modalCtrl.dismiss();
   }
 
   render() {

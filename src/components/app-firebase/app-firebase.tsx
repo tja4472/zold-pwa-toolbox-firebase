@@ -194,6 +194,7 @@ export class AppFirebase {
                     type="password"
                     placeholder="Password"
                     value={this.password}
+                    min-length='7'
                     onInput={(event) => this.handlePasswordChange(event)}
                   />
                 </ion-item>

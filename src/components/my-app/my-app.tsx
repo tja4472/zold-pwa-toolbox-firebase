@@ -60,6 +60,7 @@ export class MyApp {
             </stencil-route>
             <stencil-route url="/gizmos" component="app-gizmo" exact={true} />
             <stencil-route url="/firebase" component="app-firebase" exact={true} />
+            <stencil-route url="/sign-in" component="app-sign-in" exact={true} />
 
             <stencil-route url='/profile/:name' component='app-profile'>
             </stencil-route>

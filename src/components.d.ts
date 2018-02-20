@@ -168,6 +168,36 @@ declare global {
 
 
 import {
+  AppSignIn as AppSignIn
+} from './components/app-sign-in/app-sign-in';
+
+declare global {
+  interface HTMLAppSignInElement extends AppSignIn, HTMLStencilElement {
+  }
+  var HTMLAppSignInElement: {
+    prototype: HTMLAppSignInElement;
+    new (): HTMLAppSignInElement;
+  };
+  interface HTMLElementTagNameMap {
+    "app-sign-in": HTMLAppSignInElement;
+  }
+  interface ElementTagNameMap {
+    "app-sign-in": HTMLAppSignInElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "app-sign-in": JSXElements.AppSignInAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppSignInAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   LazyImg as LazyImg
 } from './components/lazy-img/lazy-img';
 

@@ -52,7 +52,6 @@ export class AppGizmo {
   render() {
     return (
       <ion-page>
-        <ion-modal-controller />
         <ion-header>
           <ion-toolbar color="primary">
             <ion-buttons slot="start">
