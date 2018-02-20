@@ -18,6 +18,96 @@ declare global {
 
 
 import {
+  AppFirebase as AppFirebase
+} from './components/app-firebase/app-firebase';
+
+declare global {
+  interface HTMLAppFirebaseElement extends AppFirebase, HTMLStencilElement {
+  }
+  var HTMLAppFirebaseElement: {
+    prototype: HTMLAppFirebaseElement;
+    new (): HTMLAppFirebaseElement;
+  };
+  interface HTMLElementTagNameMap {
+    "app-firebase": HTMLAppFirebaseElement;
+  }
+  interface ElementTagNameMap {
+    "app-firebase": HTMLAppFirebaseElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "app-firebase": JSXElements.AppFirebaseAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppFirebaseAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  AppGizmoDetail as AppGizmoDetail
+} from './components/app-gizmo-detail/app-gizmo-detail';
+
+declare global {
+  interface HTMLAppGizmoDetailElement extends AppGizmoDetail, HTMLStencilElement {
+  }
+  var HTMLAppGizmoDetailElement: {
+    prototype: HTMLAppGizmoDetailElement;
+    new (): HTMLAppGizmoDetailElement;
+  };
+  interface HTMLElementTagNameMap {
+    "app-gizmo-detail": HTMLAppGizmoDetailElement;
+  }
+  interface ElementTagNameMap {
+    "app-gizmo-detail": HTMLAppGizmoDetailElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "app-gizmo-detail": JSXElements.AppGizmoDetailAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppGizmoDetailAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  AppGizmo as AppGizmo
+} from './components/app-gizmo/app-gizmo';
+
+declare global {
+  interface HTMLAppGizmoElement extends AppGizmo, HTMLStencilElement {
+  }
+  var HTMLAppGizmoElement: {
+    prototype: HTMLAppGizmoElement;
+    new (): HTMLAppGizmoElement;
+  };
+  interface HTMLElementTagNameMap {
+    "app-gizmo": HTMLAppGizmoElement;
+  }
+  interface ElementTagNameMap {
+    "app-gizmo": HTMLAppGizmoElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "app-gizmo": JSXElements.AppGizmoAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppGizmoAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   AppHome as AppHome
 } from './components/app-home/app-home';
 

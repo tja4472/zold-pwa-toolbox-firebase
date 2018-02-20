@@ -1,3 +1,24 @@
+## Requires src/components/my-app/my-firebase-app-config.ts
+```typescript
+import { FirebaseOptions } from "@firebase/app-types";
+
+export const MY_FIREBASE_APP_CONFIG: FirebaseOptions = {
+  apiKey: 'XXXXXX',
+  authDomain: 'XXXXXX',
+  databaseURL: 'XXXXXX',
+  projectId: 'XXXXXX',
+  storageBucket: 'XXXXXX',
+};
+```
+## Firebase documentation
+https://firebase.google.com/docs/firestore/?authuser=0
+
+https://firebase.google.com/docs/auth/web/start?authuser=0
+
+## Ionic documentation
+[Ionic 4 Component Documentation](https://github.com/ionic-team/ionic/tree/core/packages/core/src/components)
+
+
 # Ionic PWA Toolkit Beta
 
 The Ionic PWA Toolkit is the recommended way to build production ready Progressive Web Apps (PWAs) with Ionic. This toolkit gets you started with [Stencil](https://stenciljs.com/) and an early release of Ionic (4.x+). This combination of tools gives you the ability to build a fast, efficient PWA with zero config needed and best practices out of the box.

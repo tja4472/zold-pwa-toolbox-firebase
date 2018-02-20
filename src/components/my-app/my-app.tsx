@@ -1,6 +1,16 @@
 import { Component, Prop, Listen } from '@stencil/core';
 import { ToastController } from '@ionic/core';
 
+import firebase from '@firebase/app';
+
+// This import loads the firebase namespace along with all its type information.
+// Causes error
+// import * as firebase from 'firebase/app';
+
+// These imports load individual services into the firebase namespace.
+import '@firebase/auth';
+import '@firebase/firestore';
+import { MY_FIREBASE_APP_CONFIG } from "./my-firebase-app-config";
 @Component({
   tag: 'my-app',
   styleUrl: 'my-app.scss'
@@ -8,6 +18,12 @@ import { ToastController } from '@ionic/core';
 export class MyApp {
 
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: ToastController;
+
+  constructor(){
+    console.log('MyApp:constructor'); 
+    firebase.initializeApp(MY_FIREBASE_APP_CONFIG);
+    // firebase.firestore();
+  }
 
   componentDidLoad() {
     /*
@@ -42,6 +58,8 @@ export class MyApp {
           <stencil-router>
             <stencil-route url='/' component='app-home' exact={true}>
             </stencil-route>
+            <stencil-route url="/gizmos" component="app-gizmo" exact={true} />
+            <stencil-route url="/firebase" component="app-firebase" exact={true} />
 
             <stencil-route url='/profile/:name' component='app-profile'>
             </stencil-route>
