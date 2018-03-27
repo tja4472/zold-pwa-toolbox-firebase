@@ -161,21 +161,20 @@ export class AppFirebase {
       <ion-page>
         <ion-header>
           <ion-toolbar color="primary">
-            <ion-buttons slot="start">
-              <stencil-route-link url="/">
-                <ion-button>
-                  <ion-icon slot="icon-only" name="arrow-back" />
-                </ion-button>
-              </stencil-route-link>
+          <ion-buttons slot="start">
+              <ion-back-button defaultHref='/'></ion-back-button>
             </ion-buttons>
             <ion-title>Firebase</ion-title>
           </ion-toolbar>
         </ion-header>
 
         <ion-content>
+          <p>aaaaa</p>
+{/*          
           <stencil-route-link url="/profile/stencil">
             <ion-button>AAAAAAA</ion-button>
           </stencil-route-link>
+         
           <ion-grid>
             <ion-row>
               <ion-col col-6>
@@ -248,8 +247,11 @@ export class AppFirebase {
               ))}
             </ion-list>
           </ion-row>
+*/}          
         </ion-content>
       </ion-page>
     );
+   
   }
+   
 }

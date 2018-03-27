@@ -55,6 +55,13 @@ export class MyApp {
     return (
       <ion-app>
         <main>
+        <ion-router useHash={false}>
+            <ion-route url='/' component='app-home'></ion-route>
+            <ion-route url='/profile/:name' component='app-profile'></ion-route>
+            <ion-route url='/firebase' component='app-firebase'></ion-route>
+            <ion-nav></ion-nav>
+          </ion-router>          
+{/*          
           <stencil-router>
             <stencil-route url='/' component='app-home' exact={true}>
             </stencil-route>
@@ -65,6 +72,7 @@ export class MyApp {
             <stencil-route url='/profile/:name' component='app-profile'>
             </stencil-route>
           </stencil-router>
+*/}          
         </main>
       </ion-app>
     );

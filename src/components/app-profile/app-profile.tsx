@@ -1,5 +1,4 @@
 import { Component, Listen, Prop, State } from '@stencil/core';
-import { MatchResults } from '@stencil/router';
 import { ToastController } from '@ionic/core';
 
 import { urlB64ToUint8Array } from '../../helpers/utils';
@@ -11,8 +10,8 @@ import { urlB64ToUint8Array } from '../../helpers/utils';
 })
 export class AppProfile {
 
-  @Prop() match: MatchResults;
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: ToastController;
+  @Prop() name: string;
 
   @State() notify: boolean;
   @State() swSupport: boolean;
@@ -30,7 +29,7 @@ export class AppProfile {
   }
 
   @Listen('ionChange')
-  subscribeToNotify($event) {
+  subscribeToNotify($event: CustomEvent) {
     console.log($event.detail.checked);
 
     if ($event.detail.checked === true) {
@@ -40,54 +39,58 @@ export class AppProfile {
 
   handleSub() {
     // get our service worker registration
-    navigator.serviceWorker.getRegistration().then((reg: ServiceWorkerRegistration) => {
+    navigator.serviceWorker.getRegistration().then((reg) => {
 
-      // get push subscription
-      reg.pushManager.getSubscription().then((sub: PushSubscription) => {
+      // check if service worker is registered
+      if (reg) {
+        // get push subscription
+        reg.pushManager.getSubscription().then((sub) => {
 
-        // if there is no subscription that means
-        // the user has not subscribed before
-        if (sub === null) {
-          // user is not subscribed
-          reg.pushManager.subscribe({
-            userVisibleOnly: true,
-            applicationServerKey: this.publicServerKey
-          })
-            .then((sub: PushSubscription) => {
-              // our user is now subscribed
-              // lets reflect this in our UI
-              console.log('web push subscription: ', sub);
-
-              this.notify = true;
+          // if there is no subscription that means
+          // the user has not subscribed before
+          if (sub === null) {
+            // user is not subscribed
+            reg.pushManager.subscribe({
+              userVisibleOnly: true,
+              applicationServerKey: this.publicServerKey
             })
-        }
-      })
+              .then((sub: PushSubscription) => {
+                // our user is now subscribed
+                // lets reflect this in our UI
+                console.log('web push subscription: ', sub);
+                this.notify = true;
+              })
+          }
+        })
+      }
     })
   }
 
   render() {
-    if (this.match && this.match.params.name) {
-      return (
-        <ion-page>
-          <ion-header>
-            <ion-toolbar color='primary'>
-              <ion-title>Ionic PWA Toolkit</ion-title>
-            </ion-toolbar>
-          </ion-header>
+    return (
+      <ion-page>
+        <ion-header>
+          <ion-toolbar color='primary'>
+            <ion-buttons slot="start">
+              <ion-back-button defaultHref='/'></ion-back-button>
+            </ion-buttons>
 
-          <ion-content>
-            <p>
-              Hello! My name is {this.match.params.name}.
-              My name was passed in through a route param!
+            <ion-title>Ionic PWA Toolkit</ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+          <p>
+            Hello! My name is {this.name}.
+            My name was passed in through a route param!
             </p>
 
-            {this.swSupport ? <ion-item>
-              <ion-label>Notifications</ion-label>
-              <ion-toggle checked={this.notify} disabled={this.notify}></ion-toggle>
-            </ion-item> : null}
-          </ion-content>
-        </ion-page>
-      );
-    }
+          {this.swSupport ? <ion-item>
+            <ion-label>Notifications</ion-label>
+            <ion-toggle checked={this.notify} disabled={this.notify}></ion-toggle>
+          </ion-item> : null}
+        </ion-content>
+      </ion-page>
+    );
   }
 }

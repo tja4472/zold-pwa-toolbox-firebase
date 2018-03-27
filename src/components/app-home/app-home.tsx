@@ -23,6 +23,15 @@ export class AppHome {
             <a href="https://stenciljs.com">stenciljs.com</a> to get started.
           </p>
 
+          <ion-button href={'/profile/stencil'}>
+            Profile page
+          </ion-button>
+
+          <ion-button href={'/firebase'}>
+          Firebase page
+          </ion-button>          
+
+{/*
           <stencil-route-link url="/profile/stencil">
             <ion-button>Profile page</ion-button>
           </stencil-route-link>
@@ -38,6 +47,7 @@ export class AppHome {
           <stencil-route-link url="/sign-in">
             <ion-button>Sign In</ion-button>
           </stencil-route-link>          
+*/}          
         </ion-content>
       </ion-page>
     );
